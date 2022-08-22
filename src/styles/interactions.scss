@@ -1,0 +1,414 @@
+@import "variables";
+
+$delay: 0.5s;
+
+@mixin transitions() {
+  transition: $delay color, $delay background-color, $delay border, $delay fill;
+}
+
+@mixin focus-before($color, $paddingX, $paddingY) {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    transition: $delay background-color;
+    background-color: transparent;
+    top: $paddingY;
+    bottom: $paddingY;
+    left: $paddingX;
+    right: $paddingX;
+    z-index: -1;
+  }
+
+  &:focus-visible {
+    color: $color-white;
+    outline: none;
+  }
+
+  &:focus-visible::before {
+    background-color: $color;
+  }
+}
+
+.header__menu-link {
+  @include transitions();
+
+  &:hover {
+    color: $color-firm;
+  }
+
+  &:active {
+    color: $color-active;
+
+  }
+
+  @include focus-before($color-focus, -6px, 0)
+}
+
+.socials_item .link {
+  @include transitions();
+  fill: $color-address;
+
+  &:hover {
+    fill: $color-firm;
+  }
+
+  &:active {
+    fill: $color-active;
+  }
+
+  &:focus-visible {
+    outline: none;
+    fill: $color-focus;
+  }
+}
+
+.btn-primary {
+  @include transitions();
+
+  &:hover {
+    background-color: $color-focus;
+  }
+
+  &:active {
+    background-color: $color-active;
+
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: 3px solid $color-active;
+    background-color: $color-firm;
+  }
+}
+
+.slides-card__btn {
+  @include transitions();
+
+  &:hover {
+    background-color: $color-firm;
+  }
+
+  &:active {
+    background-color: $color-active;
+    border-color: $color-active;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background-color: $color-focus;
+  }
+}
+
+
+.follow-us__input {
+  color: $color-address;
+
+  outline: 1px solid transparent;
+  transition: $delay outline;
+
+
+  @include transitions();
+
+  &::placeholder {
+    transition: $delay color;
+  }
+
+  &:hover {
+    color: $color-firm;
+
+    &::placeholder {
+      color: $color-firm;
+    }
+  }
+
+  &:active {
+    outline: none;
+    color: $color-white;
+  }
+
+  &:focus-within {
+    outline: 1px solid $color-firm;
+    color: $color-white;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+
+  &__message {
+    transition: $delay opacity;
+    position: absolute;
+    opacity: 0;
+
+    color: $color-error;
+    font-size: 9px;
+    top: -3px;
+    left: 24px;
+    z-index: 1;
+  }
+}
+
+.input-wrapper.error {
+
+  .input {
+    outline: 1px solid $color-error !important;
+  }
+
+  .input-wrapper__message {
+    opacity: 1;
+
+  }
+}
+
+.contacts__form-input {
+  color: $color-date;
+
+  transition: $delay outline;
+  outline: 1px solid transparent;
+
+  @include transitions();
+
+  &::placeholder {
+    transition: $delay color;
+  }
+
+  &:hover {
+    color: $color-firm;
+
+    &::placeholder {
+      color: $color-firm;
+    }
+  }
+
+  &:active {
+    outline: none;
+    color: $color-main-dark;
+  }
+
+  &:focus-within {
+    outline: 1px solid $color-firm;
+    color: $color-date;
+  }
+}
+
+.contacts__address__close-btn {
+  transition: $delay outline;
+  outline: 3px solid transparent;
+
+  svg {
+    transition: $delay fill;
+  }
+
+  &:hover svg {
+    fill: $color-firm;
+  }
+
+  &:active svg {
+    fill: $color-active;
+  }
+
+  &:focus-visible {
+    outline-color: $color-firm;
+
+    svg {
+      fill: #ffffff;
+    }
+  }
+}
+
+.contacts__address-phone {
+  @include transitions();
+  @include focus-before($color-firm, -6px, 0);
+
+  &::before {
+    left: 2px;
+    right: -8px;
+  }
+
+  &:hover {
+    color: $color-active;
+  }
+
+  &:active {
+    color: $color-address;
+  }
+
+  &:focus-visible {
+    outline: none;
+    color: $color-white;
+
+
+  }
+
+  @media (min-width:1920px) {
+    position: absolute;
+
+    &::before {
+      top: 0px;
+      bottom: -5px;
+      left: 2px;
+      right: -8px;
+    }
+  }
+
+}
+
+.contacts__address {
+  transition: 0.2s ease-out transform;
+
+  &__close-btn {
+    transition: 0.2s ease-out transform, 0.2s ease-out top, 0.2s ease-out right;
+
+  }
+
+  &_hidden {
+    transform: translateY(85%);
+
+    & .contacts__address__close-btn {
+      top: 0;
+      transform: translateY(-50%) scale(1.2);
+    }
+
+
+  }
+
+  @media (min-width: 1920px) {
+    &_hidden {
+      transform: translateX(-87%);
+
+      & .contacts__address__close-btn {
+        top: 20px;
+
+        transform: translateX(4px) scale(1.2) rotate(90deg);
+      }
+    }
+  }
+}
+
+.card-hash {
+  transition: $delay color, $delay background-color;
+
+  &:hover {
+    color: $color-firm;
+  }
+
+  &:active {
+    color: $color-active;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background-color: $color-firm;
+    color: white;
+  }
+}
+
+.header__menu-btn {
+  transition: $delay outline;
+
+
+  svg {
+    transition: $delay fill;
+  }
+
+  &:hover svg {
+    fill: $color-firm;
+  }
+
+  &:active svg {
+    fill: $color-active;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    svg {
+      fill: $color-firm;
+    }
+  }
+}
+
+.header__menu_active {
+  .header__menu-nav {
+    height: 100vh;
+  }
+}
+
+
+.header__seacrh.active {
+
+  .header__seacrh-input-wrapper {
+    opacity: 1;
+  }
+
+  @media (min-width:460px) {
+    .header__seacrh-input-wrapper {
+      // min-width: auto;
+      width: 175px;
+    }
+  }
+
+  @media (min-width:1024px) {
+    .header__seacrh-input-wrapper {
+      width: 195px;
+    }
+  }
+}
+
+.header__seacrh-input {
+
+  &:hover,
+  &:active {
+    border-color: $color-firm;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $color-active;
+  }
+}
+
+.header__seacrh-btn {
+  svg {
+    transition: $delay fill;
+  }
+
+  &:hover svg {
+    fill: $color-firm;
+  }
+
+  &:active svg {
+    fill: $color-active;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    svg {
+      fill: $color-firm;
+    }
+  }
+}
+
+.logo-link {
+  transition: $delay opacity, $delay filter;
+
+  &:hover {
+    opacity: .8;
+    filter: saturate(300%);
+
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: none;
+    opacity: .8;
+    filter: saturate(300%);
+  }
+}

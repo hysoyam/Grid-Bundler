@@ -1,0 +1,286 @@
+@import 'variables';
+
+.contacts {
+
+  padding: 0;
+
+  &__header {
+    margin-bottom: 15px;
+    padding: 0 $side-padding;
+  }
+}
+
+.contacts__map {
+  @include add-bg-img('../images/map.jpg');
+  min-height: 472px;
+  position: relative;
+  overflow: hidden
+}
+
+.contacts__address {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 26px $side-padding 12px;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-main-dark-op85;
+  font-style: initial;
+
+  &-header {
+    margin-bottom: 10px;
+    font-family: $font-TT;
+    font-size: 18px;
+    font-weight: 400;
+    color: $color-white;
+  }
+
+  &-address {
+    padding-right: 10px;
+    margin-bottom: 0;
+    color: $color-address;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &-phone {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-family: $font-TT;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    color: $color-firm;
+
+    svg {
+      fill: currentColor;
+      height: 22px;
+      width: 18px;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-close-gray;
+    border-radius: 50px;
+
+    svg {
+      fill: $color-white;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+.contacts__form {
+  padding: 23px $side-padding 50px;
+
+  &-header {
+    font-family: $font-TT;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  &-input {
+    background-color: $color-input-gray;
+    margin-bottom: 20px;
+
+
+    &::placeholder {
+      color: $color-date;
+    }
+  }
+
+  &-textarea {
+
+    min-height: 150px;
+    margin-bottom: 21px;
+    resize: none;
+  }
+
+  &-desc {
+    color: $color-date;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  &-btn {
+    padding: 9px 19px;
+    line-height: 1;
+  }
+}
+
+
+@media (min-width:768px) {
+  .contacts {
+    padding-right: 27px;
+    padding-left: 27px;
+    padding-bottom: 45px;
+
+    &__header {
+      margin-bottom: 25px;
+      padding: 0;
+    }
+
+    &__map {
+      min-height: 460px;
+
+    }
+  }
+
+  .contacts__address {
+    padding: 25px 31px;
+
+    &-header {
+      margin-bottom: 5px;
+      font-size: 24px;
+    }
+
+    &-address {
+      width: 70%;
+      font-size: 16px;
+      line-height: 28px;
+    }
+
+    &-phone {
+      margin-top: 4px;
+      font-size: 16px;
+
+      svg {
+        height: 20px;
+        width: 21px;
+      }
+    }
+  }
+
+  .contacts__form {
+    padding: 24px 0;
+
+    &-header {
+      margin-bottom: 5px;
+      font-size: 24px;
+    }
+
+    &-desc {
+      width: 65%;
+      max-width: 466px;
+      margin-bottom: 14px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    &-input {
+      max-width: 466px;
+      padding: 16px 24px;
+    }
+
+    &-btn {
+      padding: 13px 19px;
+      font-size: 16px;
+    }
+  }
+
+}
+
+@media (min-width:1024px) {
+  .contacts {
+    padding-right: 31px;
+    padding-left: 31px;
+    padding-bottom: 68px;
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: 590px 1fr;
+
+    &__header {
+      grid-column: 1/3;
+      margin-bottom: 18px;
+    }
+
+    &__map {
+
+      margin-top: 7px;
+    }
+  }
+
+
+  .contacts__address {
+    padding: 25px 31px 20px;
+
+
+    &-address {
+      padding: 0;
+      width: 300px;
+    }
+
+    &-phone {
+
+      margin-top: 0;
+      display: inline;
+
+
+      svg {
+        display: inline;
+        transform: translate(5px, 5px);
+      }
+    }
+  }
+
+  .contacts__form {
+    padding: 0;
+
+    &-desc {
+      width: 310px;
+    }
+  }
+}
+
+@media (min-width:1920px) {
+  .contacts {
+    padding-left: 0;
+    padding-right: 0;
+
+    grid-template-columns: 66% 33%;
+  }
+
+
+  .contacts__address {
+    right: auto;
+    top: 0;
+    padding: 25px 50px 20px 60px;
+    display: flex;
+    justify-content: center;
+
+    &-address {
+      position: relative;
+    }
+
+    &-phone {
+      position: absolute;
+      top: calc(100% - 3px);
+      left: -5px;
+    }
+  }
+
+  .contacts__form {
+    padding: 0;
+
+    &-desc {
+      max-width: 466px;
+    }
+  }
+
+  .contacts__address-phone {
+    color: $color-white;
+  }
+}

@@ -1,0 +1,222 @@
+@import 'variables';
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src:
+
+    url("../fonts/Roboto-Regular.woff2") format("woff2"),
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 800;
+  src:
+
+    url("../fonts/Roboto-Bold.woff2") format("woff2"),
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  font-weight: 400;
+  src:
+
+    url("../fonts/TTFirsNeue-Regular.woff2") format("woff2"),
+}
+
+@font-face {
+  font-family: "TT Firs Neue";
+  font-weight: 800;
+  src:
+
+    url("../fonts/TTFirsNeue-Bold.woff2") format("woff2"),
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+picture,
+img,
+svg {
+  width: 100%;
+  display: block;
+}
+
+input,
+textarea {
+  padding: 12px 23px;
+  display: block;
+  border: none;
+  font-size: inherit;
+
+  &::placeholder {
+    font-size: inherit;
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+  font-family: $font-Roboto;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: $color-main-dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.btn {
+  padding: 8px 19px;
+  border: none;
+  background-color: $color-firm;
+  font-family: $font-Roboto;
+  color: $color-white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.btn-icon {
+  border: none;
+  padding: 0;
+  display: block;
+  background-color: transparent;
+  cursor: pointer;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    display: block;
+
+  }
+}
+
+.btn-primary {
+  border: 3px solid $color-firm;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.section-wrapper {
+  margin: 0 auto;
+  padding: 25px $side-padding;
+
+  max-width: 1290px;
+}
+
+
+
+.input {
+  width: 100%;
+  font-size: 14px;
+  max-width: 342px;
+
+  &::placeholder {
+
+    font-family: $font-Roboto;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  @media (min-width:768px) {
+    font-size: 16px;
+
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width:1920px) {
+    max-width: none;
+    width: 410px;
+  }
+}
+
+
+
+.section__header,
+.section__subheader {
+  font-weight: 700;
+}
+
+.section__header {
+  font-family: $font-TT;
+  font-size: 18px;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+
+}
+
+@media (min-width:768px) {
+  $gap: 30px;
+
+  .section__header {
+    font-size: 24px;
+  }
+
+  .section-wrapper {
+    padding-right: 27px;
+    padding-left: 27px;
+  }
+}
+
+@media (min-width:1024px) {
+
+  .section-wrapper {
+    padding-right: 31px;
+    padding-left: 31px;
+  }
+}
+
+@media (min-width:1920px) {}
+
+
+.card-hash {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 7px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-gray-1;
+  color: $color-white;
+  font-size: 12px;
+  line-height: 1;
+}

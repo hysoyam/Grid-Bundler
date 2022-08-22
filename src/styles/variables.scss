@@ -1,0 +1,51 @@
+$color-white: #ffffff;
+$color-main-dark: #202020;
+$color-firm: #FF6E30;
+$color-active: #CE4307;
+$color-error: #F06666;
+$color-focus: #BC572B;
+$color-main-dark-op85: #202020D9;
+$color-side-menu: #4A4A4A;
+$color-address: #CACACA;
+$color-gray-1: #333;
+$color-seacrh-icon: #BCBCBC;
+$color-date: #999999;
+$color-input-gray: #E9E9E9;
+$color-close-gray: #666666;
+
+$font-size:14px;
+$font-Roboto:"Roboto",
+sans-serif;
+$font-TT:"TT Firs Neue",
+sans-serif;
+
+$gap:30px;
+$side-padding:21px;
+
+// @mixin after-hash($padding:15px) {
+//   position: relative;
+
+//   &::after {
+//     content: attr(data-hash);
+//     position: absolute;
+//     top: $padding;
+//     right: $padding;
+//     padding: 6px 7px;
+
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background-color: $color-gray-1;
+//     color: $color-white;
+//     font-size: 12px;
+//     line-height: 1;
+//   }
+// }
+
+
+
+@mixin add-bg-img($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-position: center;
+}
